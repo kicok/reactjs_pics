@@ -3,18 +3,22 @@ import React from "react";
 class SearchBar extends React.Component {
   state = { term: "hi There" };
 
+  onFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.term);
+  };
+
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
+          {/* onSubmit={(event) => this.onFormSubmit(event)} 이 방법도 가능 */}
           <div className="field">
             <label>Image Search</label>
             <input
               type="text"
               value={this.state.term}
-              onChange={(e) =>
-                this.setState({ term: e.target.value.toUpperCase() })
-              }
+              onChange={(e) => this.setState({ term: e.target.value })}
             />
           </div>
         </form>
