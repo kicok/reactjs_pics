@@ -1,11 +1,12 @@
 .image-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 10px;
-  grid-auto-rows: 150px;
+  grid-gap: 0 10px;
+  grid-auto-rows: 10px;
 }
 
 .image-list img {
   width: 250px;
-  grid-row-end: span 3;
+  /* grid-row: span 3; 동적으로 높이를 불러와서 처리해야 하크로 imageCard.js파일에서 
+  ref를 통해 동적인 clientHeight값을 알아낸후 style=gridRowEnd 설정으로 처리함  */
 }
